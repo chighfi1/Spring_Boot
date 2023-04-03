@@ -1,9 +1,9 @@
 package com.basketball.basketball.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.annotations.Type;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity(name="speakers")
 public class Speaker {
@@ -20,6 +20,18 @@ public class Speaker {
     public Long getSpeaker_id() {
         return speaker_id;
     }
+
+    public Speaker() {
+
+    }
+
+
+    /*
+        We already defined the other side of the many-to-many
+        relationship, so now we can use this short cut
+     */
+    @ManyToMany(mappedBy = "speakers")
+    private List<Session> sessions;
 
     public void setSpeaker_id(Long speaker_id) {
         this.speaker_id = speaker_id;
@@ -65,7 +77,11 @@ public class Speaker {
         this.speaker_bio = speaker_bio;
     }
 
-    public Speaker() {
+    public List<Session> getSessions() {
+        return sessions;
+    }
 
+    public void setSessions(List<Session> sessions) {
+        this.sessions = sessions;
     }
 }
