@@ -3,6 +3,7 @@ package com.basketball.basketball.models;
 import javax.persistence.*;
 import java.util.List;
 
+@Table
 @Entity(name="sessions")
 public class Session {
     @Id

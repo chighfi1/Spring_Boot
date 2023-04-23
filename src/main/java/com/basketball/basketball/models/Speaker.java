@@ -5,6 +5,7 @@ import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import java.util.List;
 
+@Table
 @Entity(name="speakers")
 public class Speaker {
 
